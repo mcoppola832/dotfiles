@@ -1,33 +1,26 @@
 # P'unk specific open A2 / node.js / PHP development stuff
 brew install node mongo mysql imagemagick netpbm
+
+# Set up mongodb to run on the regular
 ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
 
-sudo touch /etc/php.ini
-subl /etc/php.ini
+# Set up mysql to run on the regular
+ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 
-# Paste in:
+# Set the root mysql password
+mysqladmin -u root password "root"
 
-# mysql.default_socket = /tmp/mysql.sock
-# pdo_mysql.default_socket = /tmp/mysql.sock
-
-# date.timezone = America/New_York
-
-# (You need the "touch" command because sublimetext seems unable to make a new file owned by root.)
-
-# * Apache: we'll configure the version that comes with MacOS.
-
-# Edit: /etc/apache2/httpd.conf
-
-# Now run:
-
-# sudo apachectl start
-
-# If it doesn't work, check /var/log/apache2/error_log. After making adjustments run:
-
-# sudo apachectl restart
-
-# * Build and load the database from fixtures in your checkout of the A1.5 sandbox:
-
-# ./symfony doctrine:build --all --and-load
-
+cat <<EOF
+#------------------------------------ MANUAL STEPS FROM HERE ON OUT ------------------------------------#
+#
+# 1. sudo cp ~/.dotfiles/punk/php.ini /etc/php.ini
+#
+# 2. Edit /etc/apache2/httpd.conf and update with the contents of ~/.dotfiles/punk/httpd.conf
+#
+# 3. Restart Apache with sudo apachectl start
+#
+# 4. If you are moving from an old machine, you can copy .ssh config stuff / keys from that one
+#-------------------------------------------------------------------------------------------------------#
+EOF
