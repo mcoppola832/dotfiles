@@ -13,7 +13,7 @@ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 mysqladmin -u root password "root"
 
 cat <<EOF
-#------------------------------------ MANUAL STEPS FROM HERE ON OUT ------------------------------------#
+#--------------------------------- MANUAL STEPS FROM HERE ON OUT ---------------------------------#
 #
 # 1. sudo cp ~/.dotfiles/punk/php.ini /etc/php.ini
 #
@@ -22,5 +22,5 @@ cat <<EOF
 # 3. Restart Apache with sudo apachectl start
 #
 # 4. If you are moving from an old machine, you can copy .ssh config stuff / keys from that one
-#-------------------------------------------------------------------------------------------------------#
+#-------------------------------------------------------------------------------------------------#
 EOF
