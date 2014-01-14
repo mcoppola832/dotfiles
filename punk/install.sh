@@ -2,6 +2,7 @@
 brew install node mongo mysql imagemagick netpbm
 
 # Set up mongodb to run on the regular
+mkdir -p ~/Library/LaunchAgents 
 ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
 
